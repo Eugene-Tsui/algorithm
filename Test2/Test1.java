@@ -1,18 +1,18 @@
 package Test2;
-/*POJ 3984
- * Õª×Ôhttps://blog.csdn.net/owenchan1987/article/details/69371884*/
+/*POJ 3984 è¿·å®«é—®é¢˜
+ * Õªï¿½ï¿½https://blog.csdn.net/owenchan1987/article/details/69371884*/
 import java.util.*;
 public class Test2 {
     static Position[][] maze = new Position[8][8];
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
-        for (int i = 0; i < 8; i++) {// È«²¿³õÊ¼»¯£¬²»È»ËÑË÷µÄÊ±ºò»á±¨´í
+        for (int i = 0; i < 8; i++) {// È«ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½á±¨ï¿½ï¿½
             for (int j = 0; j < 8; j++) {
-                maze[i][j] = new Position(i, j, 1);// ÈË¹¤½¨Ç½£¬Î§ÉÏÃÔ¹¬£¬ÃâµÃÅÐ·¶Î§
+                maze[i][j] = new Position(i, j, 1);// ï¿½Ë¹ï¿½ï¿½ï¿½Ç½ï¿½ï¿½Î§ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½Î§
             }
         }
-        int[][] operate = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };// ±íÇý¶¯·¨´úÌæÁ¬Ðøif
+        int[][] operate = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½if
         for (int i = 1; i <= 5; i++) {
             for (int j = 1; j <= 5; j++) {
                 maze[i][j].value = cin.nextInt();
@@ -23,17 +23,17 @@ public class Test2 {
         while (!wait.isEmpty()) {
             Position cur = wait.poll();
             if (cur.x == 5 && cur.y == 5) {
-                // Ð´ÁË¸öµÝ¹é£¬´ÓÖÕµã¿ªÊ¼»ØÍË£¬µ½´ïÆðµãÎªÖ¹¿ªÊ¼Êä³ö£¬´ïµ½ÌâÄ¿´ÓÍ·Êä³öµÄÒªÇó
+                // Ð´ï¿½Ë¸ï¿½ï¿½Ý¹é£¬ï¿½ï¿½ï¿½Õµã¿ªÊ¼ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÖ¹ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ïµ½ï¿½ï¿½Ä¿ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½
                 outPut(5, 5);
                 break;
             }
-            cur.value = 1;// ±ê¼ÇÎª×ß¹ý
+            cur.value = 1;// ï¿½ï¿½ï¿½Îªï¿½ß¹ï¿½
             for (int i = 0; i < 4; i++) {
                 int nextX = cur.x + operate[i][0];
                 int nextY = cur.y + operate[i][1];
                 if (maze[nextX][nextY].value == 0) {
                     wait.add(maze[nextX][nextY]);
-                    maze[nextX][nextY].pre = cur;// Á´Ê½¼ÇÂ¼
+                    maze[nextX][nextY].pre = cur;// ï¿½ï¿½Ê½ï¿½ï¿½Â¼
                 }
             }
         }
