@@ -5,6 +5,16 @@ public class T58 {
         System.out.println(lengthOfLastWord("Hello World"));
     }
     public static int lengthOfLastWord(String s) {
-        return 0;
+        int n = s.length();
+        int num = 0;
+        for (int i = 1; i < n; i++) {
+            if(s.charAt(i-1) == ' ' && s.charAt(i) != ' '){
+                num = 0;
+            }else if(s.charAt(i) != ' '){
+                num++;
+            }
+
+        }
+        return num+1;
     }
 }
