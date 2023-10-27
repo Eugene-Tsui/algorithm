@@ -1,5 +1,8 @@
 package Java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TTestCode {
 
     public static int count = 1;    // 定义静态变量count
@@ -45,7 +48,7 @@ public class TTestCode {
 
     public static void main(String[] args) {
 
-        TTestCode sft = new TTestCode();
+/*        TTestCode sft = new TTestCode();
 
         // 通过实例对象调用实例方法
 
@@ -59,7 +62,11 @@ public class TTestCode {
 
         TTestCode.PrintCount();
 
-        System.out.println("这是main方法中的输出"+sft.returnNum());
+        System.out.println("这是main方法中的输出"+sft.returnNum());*/
+
+        int a = 5;
+        int b =a/3;
+        System.out.println(b);
 
     }
 
