@@ -1,7 +1,6 @@
 package Java;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class TTestCode {
 
@@ -47,26 +46,10 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-
-/*        TTestCode sft = new TTestCode();
-
-        // 通过实例对象调用实例方法
-
-        System.out.println("method1() 方法返回值 intro1="+sft.method1());
-
-        // 直接调用静态方法
-
-        System.out.println("method2() 方法返回值 intro1="+method2());
-
-        // 通过类名调用静态方法，打印 count
-
-        TTestCode.PrintCount();
-
-        System.out.println("这是main方法中的输出"+sft.returnNum());*/
-
-        int a = 5;
-        int b =a/3;
-        System.out.println(b);
+        HashMap<Integer,Integer> map = new HashMap<>();
+        map.put(1,1);
+        System.out.println(map.get(2));
+        System.out.println(map);
 
     }
 
