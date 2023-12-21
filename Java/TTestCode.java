@@ -1,6 +1,9 @@
 package Java;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.stream.Stream;
 
 public class TTestCode {
 
@@ -50,6 +53,20 @@ public class TTestCode {
         map.put(1,1);
         System.out.println(map.get(2));
         System.out.println(map);
+
+
+        //hashset的使用
+        HashSet<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        System.out.println(set);
+
+        int[][] a = new int[3][3];
+        Arrays.fill(a[0], 0);
+        Arrays.fill(a[1], 0);
+        Arrays.fill(a[2], 0);
+        System.out.println(Arrays.deepToString(a));
 
     }
 
