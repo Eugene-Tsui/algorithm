@@ -50,14 +50,7 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(0,0);
-
-        ArrayList<Integer> list1 = (ArrayList<Integer>) list.clone();
-
-        list.set(0,2);
-        System.out.println(list);
-        System.out.println(list1);
+        String s = "dog cat cat dog";
 
 
     }
