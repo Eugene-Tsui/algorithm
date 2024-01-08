@@ -1,5 +1,6 @@
 package Java;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -49,24 +50,15 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        map.put(1,1);
-        System.out.println(map.get(2));
-        System.out.println(map);
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(0,0);
 
+        ArrayList<Integer> list1 = (ArrayList<Integer>) list.clone();
 
-        //hashset的使用
-        HashSet<Integer> set = new HashSet<>();
-        set.add(1);
-        set.add(2);
-        set.add(3);
-        System.out.println(set);
+        list.set(0,2);
+        System.out.println(list);
+        System.out.println(list1);
 
-        int[][] a = new int[3][3];
-        Arrays.fill(a[0], 0);
-        Arrays.fill(a[1], 0);
-        Arrays.fill(a[2], 0);
-        System.out.println(Arrays.deepToString(a));
 
     }
 
