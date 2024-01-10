@@ -1,9 +1,6 @@
 package Java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class TTestCode {
@@ -50,7 +47,11 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-        String s = "dog cat cat dog";
+        HashMap<Integer,Integer> map = new HashMap<>();
+        map.put(1,1);
+        map.put(1,2);
+
+        System.out.println(map);
 
 
     }
