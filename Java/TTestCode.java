@@ -1,6 +1,9 @@
 package Java;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.stream.Stream;
 
 public class TTestCode {
@@ -47,11 +50,15 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        map.put(1,1);
-        map.put(1,2);
-
-        System.out.println(map);
+        String s = "123";
+        String s1 = "123";
+        String s2 = new String("123");
+        System.out.println(s.hashCode());
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+        System.out.println(s == s1);
+        System.out.println(s == s2);
+        System.out.println(s.equals(s2));
 
 
     }
