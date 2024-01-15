@@ -1,9 +1,7 @@
 package Java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TTestCode {
@@ -50,15 +48,18 @@ public class TTestCode {
     }
 
     public static void main(String[] args) {
-        String s = "123";
-        String s1 = "123";
-        String s2 = new String("123");
-        System.out.println(s.hashCode());
-        System.out.println(s1.hashCode());
-        System.out.println(s2.hashCode());
-        System.out.println(s == s1);
-        System.out.println(s == s2);
-        System.out.println(s.equals(s2));
+
+        Set<Integer> strSet = new HashSet<>();
+
+        strSet.add(31);
+        strSet.add(25);
+        strSet.add(12);
+        strSet.add(22);
+        strSet.forEach(System.out::println);
+
+
+
+
 
 
     }
