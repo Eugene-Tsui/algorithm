@@ -1,68 +1,59 @@
 package Java;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-public class TTestCode {
-
-    public static int count = 1;    // 定义静态变量count
-
-    public int method1() {
-
-        // 实例方法method1
-
-        count++;    // 访问静态变量count并赋值
-
-        System.out.println("在静态方法 method1()中的 count="+count);    // 打印count
-
-        return count;
-
+class ListNode{
+    int val;
+    ListNode next;
+    ListNode(){}
+    ListNode(int val){
+        this.val = val;
     }
-
-    public static int method2() {
-
-        // 静态方法method2
-
-        count += count;    // 访问静态变量count并赋值
-
-        System.out.println("在静态方法 method2()中的 count="+count);    // 打印count
-
-        return count;
-
+    ListNode(int val, ListNode next){
+        this.val = val;
+        this.next = next;
     }
-
-    public static void PrintCount() {
-
-        // 静态方法PrintCount
-
-        count += 2;
-
-        System.out.println("在静态方法 PrintCount()中的 count="+count);    // 打印count
-
-    }
-
-    public int returnNum(){
-        System.out.println("这是returnNum方法中的输出");
-        return 1;
-    }
-
+}
+class TTestCode {
     public static void main(String[] args) {
-
-        Set<Integer> strSet = new HashSet<>();
-
-        strSet.add(31);
-        strSet.add(25);
-        strSet.add(12);
-        strSet.add(22);
-        strSet.forEach(System.out::println);
-
-
-
-
-
-
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextLine()){
+            int n = sc.nextInt();
+            if(n==0) System.out.println("list is empty");
+            ListNode dummyNode = new ListNode(0);
+            ListNode pre = dummyNode;
+            while(n-- > 0) {
+                int num = sc.nextInt();
+                pre.next = new ListNode(num);
+                pre = pre.next;
+            }
+            show(dummyNode.next);
+            ListNode tail = verseList(dummyNode.next);
+            show(tail);
+        }
+        sc.close();
+    }
+    public static ListNode verseList(ListNode head){
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur!=null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
 
+    public static void show(ListNode head) {
+        ListNode cur = head;
+        while(cur != null) {
+            System.out.print(cur.val);
+            if(cur.next != null) {
+                System.out.print(" ");
+            }
+            cur = cur.next;
+        }
+        System.out.println();
+    }
 }
 
