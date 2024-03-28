@@ -13,28 +13,18 @@ public class T452 {
         if (points.length == 0) {
             return 0;
         }
-        Arrays.sort(points, new Comparator<int[]>(){
-            public int compare(int[] point1, int[] point2){
-                if (point1[0]>point2[0]){
-                    return 1;
-                } else if (point1[0]<point2[0]) {
-                    return -1;
-                } else {
-                  return 0;
-                }
-            }
-        });
+        Arrays.sort(points, Comparator.comparingInt(o -> o[0]));
 
         int ans=1;
         int rightMin = points[0][1];
 
         //从头进行遍历
-        for (int i = 0; i < points.length; i++) {
-            if (points[i][0]>rightMin){
-                rightMin = points[i][1];
+        for (int[] point : points) {
+            if (point[0] > rightMin) {
+                rightMin = point[1];
                 ans++;
-            }else{
-                rightMin = Math.min(points[i][1],rightMin);
+            } else {
+                rightMin = Math.min(point[1], rightMin);
             }
         }
 

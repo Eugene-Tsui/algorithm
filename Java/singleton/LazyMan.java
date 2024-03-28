@@ -3,20 +3,27 @@ package Java.singleton;
 //懒汉式单例
 public class LazyMan {
 
+    /**
+     * 懒汉使用的时候创建对象，有线程不安全问题
+     * */
+    private volatile static LazyMan lazyMan;
+
     private LazyMan() {
         System.out.println(Thread.currentThread().getName() + "ok");
     }
 
-    private volatile static LazyMan lazyMan;
+
 
     //双重检测锁模式的懒汉式单例 DCL懒汉式
     public static LazyMan getInstance(){
         if (lazyMan == null){
-            synchronized (LazyMan.class){
+            synchronized (lazyMan){
                 if (lazyMan == null){
-                    lazyMan = new LazyMan();//不是原子性操作
+                    lazyMan = new LazyMan();
                 }
+
             }
+
         }
         return lazyMan;
     }
