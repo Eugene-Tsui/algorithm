@@ -1,50 +1,30 @@
 package Java;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
-// 注意类名必须为 Main, 不要有任何 package xxx 信息
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        //sum
-        int sum=0,m=1;
-        while(n>sum){
-            sum+=m++;
-        }
-        if(n-sum!=0){
-            System.out.println("no");
+
+
+        int[] arr = {1, 2, 3};
+        //根据新数组的大小得到组合个数
+        pailie_swap(0,0, arr,new int[2]);
+
+    }
+
+    public static void pailie_swap(int n,int index, int[] arr, int[] newArr) {
+        //新数组赋值完毕推出递归
+        if (n == newArr.length) {
+            System.out.println(Arrays.toString(newArr));
             return;
-        }else{
-            System.out.println("yes");
         }
-
-        m = m-1;
-        int[][] a = new int[m][m];
-        for(int l=0;l<m;l++){
-            Arrays.fill(a[l],0);
+        //此处的for循环是改变原数组起始排序组合的下标。
+        // arr.length - i >=  newArr.length - n 是优化条件，如果后续剩余的个数不满足组合的数量，则不继续（比如3个数组排序组合个数为3的只会循环一次）
+        for (int i = index; i < arr.length && arr.length - i >=  newArr.length - n; i++) {
+            //由于不考虑顺序，只需要将原数组的值直接赋值
+            newArr[n] = arr[i];
+            //赋值余下的
+            pailie_swap(n + 1,i + 1, arr, newArr);
         }
-        a[0][0]=1;
-        int i=0,j=0,c=1;
-        while(true){
-            while(i+1<m && a[i+1][j]==0)
-                a[++i][j] = ++c;
-            while(j+1<m && a[i][j+1]==0)
-                a[i][++j]=++c;
-            while(i-1>0 && j-1>0 && a[i-1][j-1]==0)
-                a[--i][--j]=++c;
-            if(i+1>=m)break;
-            if(a[i+1][j]!=0)
-                break;
-        }
-        for (i = 0; i < m; i++) {
-            for(j=0;j<=i;j++){
-                if(a[i][j]!=0)
-                    System.out.printf("%02d ",a[i][j]);
-            }
-            System.out.println();
-        }
-
     }
 }
